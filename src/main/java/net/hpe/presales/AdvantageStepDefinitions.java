@@ -132,7 +132,7 @@ public class AdvantageStepDefinitions
     }
 
     @Then("^The first category has a name of \"([^\"]*)\"$")
-    public void theFirstCategoryHasANameOf(String arg0) throws Throwable {
+    public void theFirstCategoryHasANameOf(String strCategoryName) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         Link linkCategory = browser.describe(Link.class, new LinkDescription.Builder()
                 .cssSelector("div#SpeakersImg > div > span")
@@ -142,7 +142,7 @@ public class AdvantageStepDefinitions
 
         //Verify.areEqual(Double.toString(dblPrice),strWebPrice.trim());
         //This to generate the html report
-        Verify.areEqual("SPEAKERS", strCategory.trim());
+        Verify.areEqual(strCategoryName, strCategory.trim());
 
         //Assert.assertTrue(dblPrice.trim().equals(strWebPrice.trim()));
         //This to have junit report correct for reporting to Octane
