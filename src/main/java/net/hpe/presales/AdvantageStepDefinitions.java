@@ -38,6 +38,8 @@ public class AdvantageStepDefinitions
         browser.close();
     }
 
+    /*
+
     @Given("^I am in the site$")
     public void i_am_in_the_site() throws Throwable
     {
@@ -109,5 +111,45 @@ public class AdvantageStepDefinitions
             Assert.fail();
         }
         // throw new PendingException();
+    }
+
+*/
+
+
+
+    @Given("^A browser is open$")
+    public void aBrowserIsOpen() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+//        browser.navigate("http://nimbusserver:8000/#/");
+   //     throw new PendingException();
+    }
+
+    @When("^I navigate to AOS$")
+    public void iNavigateToAOS() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        browser.navigate("http://nimbusserver:8000/#/");
+  //      throw new PendingException();
+    }
+
+    @Then("^The first category has a name of \"([^\"]*)\"$")
+    public void theFirstCategoryHasANameOf(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        Link linkCategory = browser.describe(Link.class, new LinkDescription.Builder()
+                .cssSelector("div#SpeakersImg > div > span")
+                .tagName("SPAN").build());
+
+        String strCategory = linkCategory.getInnerText();
+
+        //Verify.areEqual(Double.toString(dblPrice),strWebPrice.trim());
+        //This to generate the html report
+        Verify.areEqual("SPEAKERS", strCategory.trim());
+
+        //Assert.assertTrue(dblPrice.trim().equals(strWebPrice.trim()));
+        //This to have junit report correct for reporting to Octane
+        if (Reporter.getStatus() == Status.Failed){
+            Assert.fail();
+        }
+
+   //     throw new PendingException();
     }
 }
