@@ -8,4 +8,4 @@ Feature: Advantage Online Store Purchase
 
 	Examples:
 			| Category1Name  |
-			| SPEAKERS  |
+			| Audio  | 
