@@ -142,7 +142,7 @@ public class AdvantageStepDefinitions
 
         //Verify.areEqual(Double.toString(dblPrice),strWebPrice.trim());
         //This to generate the html report
-        Verify.areEqual(strCategoryName, strCategory.trim());
+        Verify.areEqual("AUDIO", strCategory.trim());
 
         //Assert.assertTrue(dblPrice.trim().equals(strWebPrice.trim()));
         //This to have junit report correct for reporting to Octane
